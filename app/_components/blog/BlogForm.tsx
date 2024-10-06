@@ -24,7 +24,7 @@ const BlogForm: React.FC<PostFormProps> = ({ initialData, onSubmit }) => {
   }, [initialData]);
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className="mb-4">
       <TextField
         label="Title"
         value={title}

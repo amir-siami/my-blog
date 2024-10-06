@@ -15,7 +15,7 @@ const CreatePostPage: React.FC = () => {
   }) => {
     try {
       await createPost(data);
-      router.push("/"); // Redirect to the desired page after creating the post
+      router.push("/");
     } catch (error) {
       console.error("Failed to create post:", error);
     }

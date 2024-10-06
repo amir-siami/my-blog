@@ -1,13 +1,7 @@
+import { usePathname } from "next/navigation";
 import Link from "next/link";
 import clsx from "clsx";
-import { usePathname } from "next/navigation";
-
-interface NavLinkProps {
-  name: string;
-  href: string;
-  icon?: React.ReactNode;
-  classes?: string;
-}
+import { NavLinkProps } from "@/app/types/types";
 
 const NavLink: React.FC<NavLinkProps> = ({ name, href, icon, classes }) => {
   const pathname = usePathname();

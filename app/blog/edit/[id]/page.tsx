@@ -42,7 +42,6 @@ const EditPostPage: React.FC = () => {
   }) => {
     try {
       await updatePost(Number(id), data);
-      // Add a query parameter to indicate an update
       router.push(`/blog/${id}?updated=true`);
     } catch (error) {
       console.error("Failed to update post:", error);

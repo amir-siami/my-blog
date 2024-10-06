@@ -9,10 +9,6 @@ const navLinks = [
     name: "blog",
     href: "/blog",
   },
-  {
-    name: "Settings",
-    href: "/settings",
-  },
 ];
 
 const Navigation: React.FC = () => {

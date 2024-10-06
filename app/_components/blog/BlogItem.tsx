@@ -8,17 +8,7 @@ import Typography from "@mui/material/Typography";
 import Link from "next/link";
 
 import PersonIcon from "@mui/icons-material/Person";
-
-interface Post {
-  id: number;
-  title: string;
-  body: string;
-  author: string;
-}
-
-interface OutlinedCardProps {
-  post: Post;
-}
+import { OutlinedCardProps } from "@/app/types/types";
 
 const OutlinedCard: React.FC<OutlinedCardProps> = ({ post }) => {
   return (

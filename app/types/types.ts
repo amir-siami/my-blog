@@ -20,6 +20,10 @@ export interface Comment {
   body: string;
 }
 
+export interface OutlinedCardProps {
+  post: Post;
+}
+
 export interface BlogListProps {
   posts: Post[];
 }
@@ -31,4 +35,11 @@ export interface PostFormProps {
     author: string;
   };
   onSubmit: (data: { title: string; body: string; author: string }) => void;
+}
+
+export interface NavLinkProps {
+  name: string;
+  href: string;
+  icon?: React.ReactNode;
+  classes?: string;
 }
