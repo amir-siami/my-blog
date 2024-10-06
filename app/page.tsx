@@ -10,9 +10,7 @@ const Page = () => {
           suscipit rem nam architecto magni fuga ex accusantium id, aliquam ab
           rerum impedit. Sapiente doloremque ratione culpa reprehenderit tenetur
           repudiandae maxime quam veniam ducimus at, fuga similique, obcaecati
-          laboriosam nihil, ad dolorum! Suscipit laborum non ad reiciendis
-          ipsum, maxime voluptatem minima error minus fugit deleniti nisi,
-          dolorum pariatur amet hic?
+          laboriosam nihil, ad dolorum!
         </p>
         <a
           href="/blog"

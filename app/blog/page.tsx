@@ -63,7 +63,9 @@ const BlogPage: React.FC = () => {
         {showForm ? "Cancel" : "Create New Post"}
       </button>
 
-      {showForm && <BlogForm onSubmit={handleCreatePost} />}
+      {showForm && (
+        <BlogForm onSubmit={handleCreatePost} initialData={undefined} />
+      )}
 
       {loading ? <Spinner /> : <BlogList posts={posts} />}
     </>

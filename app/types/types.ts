@@ -35,6 +35,7 @@ export interface PostFormProps {
     author: string;
   };
   onSubmit: (data: { title: string; body: string; author: string }) => void;
+  isEdit?: boolean;
 }
 
 export interface NavLinkProps {

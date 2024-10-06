@@ -4,14 +4,18 @@ import React, { useState, useEffect } from "react";
 import { TextField, Button } from "@mui/material";
 import { PostFormProps } from "@/app/types/types";
 
-const BlogForm: React.FC<PostFormProps> = ({ initialData, onSubmit }) => {
+const BlogForm: React.FC<PostFormProps> = ({
+  initialData,
+  onSubmit,
+  isEdit,
+}) => {
   const [title, setTitle] = useState(initialData?.title || "");
   const [body, setBody] = useState(initialData?.body || "");
   const [author, setAuthor] = useState(initialData?.author || "");
 
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
-    if (!title || !body || !author) return;
+    if (!title || !body) return;
     onSubmit({ title, body, author });
   };
 
@@ -19,7 +23,6 @@ const BlogForm: React.FC<PostFormProps> = ({ initialData, onSubmit }) => {
     if (initialData) {
       setTitle(initialData.title);
       setBody(initialData.body);
-      setAuthor(initialData.author);
     }
   }, [initialData]);
 
@@ -41,15 +44,17 @@ const BlogForm: React.FC<PostFormProps> = ({ initialData, onSubmit }) => {
         multiline
         rows={4}
       />
-      <TextField
-        label="Author"
-        value={author}
-        onChange={(e) => setAuthor(e.target.value)}
-        fullWidth
-        margin="normal"
-      />
+      {!isEdit && (
+        <TextField
+          label="Author"
+          value={author}
+          onChange={(e) => setAuthor(e.target.value)}
+          fullWidth
+          margin="normal"
+        />
+      )}
       <Button type="submit" variant="contained" color="primary">
-        Create Post
+        {isEdit ? "Update Post" : "Create Post"}
       </Button>
     </form>
   );

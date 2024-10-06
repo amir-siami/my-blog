@@ -11,11 +11,18 @@ export const fetchPosts = async (): Promise<Post[]> => {
 };
 
 export const fetchPostById = async (postId: number): Promise<Post> => {
-  const response = await fetch(`${BASE_URL}/posts/${postId}`);
-  if (!response.ok) {
+  try {
+    const response = await fetch(`${BASE_URL}/posts/${postId}`);
+    if (!response.ok) {
+      throw new Error(
+        `Failed to fetch post with ID ${postId}: ${response.status}`
+      );
+    }
+    return await response.json();
+  } catch (error) {
+    console.error(error);
     throw new Error("Failed to fetch post");
   }
-  return await response.json();
 };
 
 export const fetchPostAuthor = async (userId: number): Promise<Author> => {
@@ -48,7 +55,8 @@ export const createPost = async (data: {
     body: JSON.stringify({
       title: data.title,
       body: data.body,
-      userId: data.author,
+      author: data.author,
+      userId: 1, // Hardcoded userId to 1
     }),
   });
 
