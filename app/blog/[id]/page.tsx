@@ -1,18 +1,21 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import { Paper, Typography, Divider, CardActions, Button } from "@mui/material";
 import { useParams } from "next/navigation";
+import { Paper, Typography, Divider, CardActions, Button } from "@mui/material";
 import {
   fetchPostById,
   fetchPostAuthor,
   updatePost,
   fetchPostComments,
 } from "@/app/_utils/api";
+
+import { Post, Comment, Author } from "@/app/types/types";
+
 import CommentSection from "@/app/_components/comment/CommentSection";
 import BlogForm from "@/app/_components/blog/BlogForm";
-import { Post, Comment, Author } from "@/app/types/types";
 import Spinner from "@/app/_components/spinner/Spinner";
+
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -25,8 +28,6 @@ export default function PostDetailAndEditPage() {
   const [comments, setComments] = useState<Comment[]>([]);
 
   useEffect(() => {
-    console.log("Post ID:", id); // Log the ID when entering the detail page
-
     const fetchPostData = async () => {
       if (id) {
         try {
